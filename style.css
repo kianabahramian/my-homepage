@@ -1,0 +1,84 @@
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Baloo 2', 'Arial Rounded MT Bold', Arial, sans-serif;
+    background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap');
+
+
+.duo-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.duo-card {
+    background: #fff;
+    border-radius: 32px;
+    box-shadow: 0 8px 32px rgba(30, 60, 114, 0.12);
+    padding: 48px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+}
+
+
+.duo-title {
+    color: #58cc02;
+    font-size: 2.5rem;
+    font-family: 'Baloo 2', Arial, sans-serif;
+    font-weight: 700;
+    margin: 24px 0 8px 0;
+    text-align: center;
+}
+
+.duo-intro {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+
+.duo-mascot {
+    margin-top: -64px;
+    margin-bottom: 16px;
+    background: #e5f9e0;
+    border-radius: 50%;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(88,204,2,0.12);
+}
+
+
+.circle-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #58cc02;
+    box-shadow: 0 2px 8px rgba(88,204,2,0.15);
+}
+
+
+.duo-btn {
+    padding: 14px 40px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #58cc02;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-family: 'Baloo 2', Arial, sans-serif;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(88,204,2,0.15);
+    transition: background 0.2s;
+}
+
+.duo-btn:hover {
+    background: #1cb0f6;
+}
