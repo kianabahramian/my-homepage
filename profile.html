@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Kawaii Fruit Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .profile-sections {
+            margin-left: 210px;
+            max-width: 700px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(30,60,114,0.08);
+            margin-top: 32px;
+            padding: 32px 40px 32px 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .profile-section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1cb0f6;
+            margin-bottom: 10px;
+            font-family: 'Baloo 2', Arial, sans-serif;
+        }
+        .profile-about {
+            font-size: 1.08rem;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        .profile-skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .profile-skill {
+            background: #e5f9e0;
+            color: #58cc02;
+            font-size: 1rem;
+            font-family: 'Baloo 2', Arial, sans-serif;
+            border-radius: 16px;
+            padding: 6px 18px;
+            font-weight: 600;
+            box-shadow: 0 1px 4px rgba(88,204,2,0.08);
+            border: none;
+        }
+        body {
+            margin: 0;
+            font-family: 'Baloo 2', Arial, sans-serif;
+            background: linear-gradient(135deg, #e5f9e0 0%, #b2f7ef 60%, #c1e3ff 100%);
+        }
+        .vertical-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 170px;
+            background: rgba(255,255,255,0.97);
+            box-shadow: 2px 0 16px rgba(30,60,114,0.08);
+            z-index: 2100;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-top: 48px;
+        }
+        .vertical-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+        .vertical-menu .menu-item {
+            font-family: 'Baloo 2', Arial, sans-serif;
+            font-size: 1.15rem;
+            color: #58cc02;
+            padding: 16px 32px 16px 32px;
+            cursor: pointer;
+            border-radius: 0 24px 24px 0;
+            margin-bottom: 8px;
+            transition: background 0.2s, color 0.2s;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            background: none;
+            border: none;
+            outline: none;
+            display: block;
+        }
+        .vertical-menu .menu-item.selected {
+            background: #e5f9e0;
+            color: #1cb0f6;
+            box-shadow: 2px 0 8px rgba(30,60,114,0.06);
+        }
+        .vertical-menu .menu-item:hover:not(.selected) {
+            background: #f7ffe6;
+            color: #ff5a5f;
+        }
+        .profile-banner {
+            margin-left: 210px;
+            margin-top: 0;
+            width: calc(100% - 210px);
+            height: 180px;
+            background: linear-gradient(135deg, #e5f9e0 0%, #b2f7ef 60%, #c1e3ff 100%);
+            position: relative;
+            border-radius: 0 0 18px 18px;
+            box-shadow: 0 2px 16px rgba(30,60,114,0.08);
+        }
+        .profile-main {
+            margin-left: 210px;
+            margin-top: -70px;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(30,60,114,0.08);
+                max-width: 700px;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 24px 32px;
+            gap: 24px;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 2px 12px #e5f9e0;
+            background: #fff;
+            margin: 0 0 0 0;
+            display: block;
+            z-index: 2;
+        }
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-bottom: 0;
+        }
+        .profile-name {
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 6px;
+        }
+        .profile-headline {
+            font-size: 1.15rem;
+            color: #58cc02;
+            margin-bottom: 8px;
+        }
+        .profile-location {
+            font-size: 1.05rem;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        .profile-email {
+            font-size: 1.05rem;
+            color: #888;
+            margin-bottom: 18px;
+        }
+        .profile-edit-btn {
+            background: #1cb0f6;
+            color: #fff;
+            border: none;
+            border-radius: 16px;
+            padding: 8px 24px;
+            font-size: 1rem;
+            font-family: 'Baloo 2', Arial, sans-serif;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 1px 6px rgba(88,204,2,0.10);
+            transition: background 0.2s, color 0.2s;
+            align-self: flex-start;
+        }
+        .profile-edit-btn:hover {
+            background: #58cc02;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav class="vertical-menu">
+        <ul>
+            <li class="menu-item"><a href="index.html" style="color:inherit;text-decoration:none;display:block;width:100%;height:100%">Order</a></li>
+            <li class="menu-item selected"><a href="profile.html" style="color:inherit;text-decoration:none;display:block;width:100%;height:100%">Profile</a></li>
+            <li class="menu-item">Settings</li>
+        </ul>
+    </nav>
+    <div class="profile-banner"></div>
+    <div class="profile-main">
+        <img src="llama.jpg" alt="Profile Photo" class="profile-avatar">
+        <div class="profile-info">
+            <div class="profile-name">Kawaii Llama</div>
+            <div class="profile-headline">Fruit Enthusiast · Kawaii Fruit Shopper</div>
+            <div class="profile-location">Tokyo, Japan</div>
+            <div class="profile-email">llama@fruitshop.com</div>
+            <button class="profile-edit-btn">Edit Profile</button>
+        </div>
+    </div>
+    <div class="profile-sections">
+        <section>
+            <div class="profile-section-title">About Me</div>
+            <div class="profile-about">
+                Hi! I'm Kawaii Llama, a passionate fruit lover and connoisseur of all things cute and delicious. I enjoy discovering new fruits, sharing fruit facts, and making the world a sweeter place—one pineapple at a time!
+            </div>
+        </section>
+        <section>
+            <div class="profile-section-title">Skills</div>
+            <div class="profile-skills-list">
+                <span class="profile-skill">Fruit Tasting</span>
+                <span class="profile-skill">Kawaii Design</span>
+                <span class="profile-skill">Shopping</span>
+                <span class="profile-skill">Juice Making</span>
+                <span class="profile-skill">Social Media</span>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -7,12 +7,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="cart-overlay" class="cart-overlay"></div>
     <nav class="vertical-menu">
         <ul>
             <li class="menu-item selected">Order</li>
-            <li class="menu-item">Create</li>
-            <li class="menu-item">Profile</li>
+            <li class="menu-item"><a href="profile.html" style="color:inherit;text-decoration:none;display:block;width:100%;height:100%">Profile</a></li>
             <li class="menu-item">Settings</li>
         </ul>
     </nav>
@@ -66,20 +64,6 @@
     </div>
 </body>
 <style>
-    .cart-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: rgba(0,0,0,0.18);
-        z-index: 1999;
-        transition: opacity 0.3s;
-    }
-    .cart-overlay.open {
-        display: block;
-    }
     .vertical-menu {
         position: fixed;
         top: 0;
@@ -352,18 +336,6 @@
     }
 </style>
 <script>
-// Overlay and click-outside-to-close logic for cart drawer
-const cartOverlay = document.getElementById('cart-overlay');
-function openCartDrawer() {
-    cartDrawer.classList.add('open');
-    cartOverlay.classList.add('open');
-}
-function closeCartDrawer() {
-    cartDrawer.classList.remove('open');
-    cartOverlay.classList.remove('open');
-}
-cartOverlay.addEventListener('click', closeCartDrawer);
-
 // Helper to get the cart area position
 function getCartPosition() {
     const cart = document.getElementById('cart-area');
@@ -378,8 +350,8 @@ function getCartPosition() {
 const cartDrawer = document.getElementById('cart-area');
 document.querySelectorAll('.add-cart-btn').forEach((btn) => {
     btn.addEventListener('click', function() {
-        // Open the cart drawer (with overlay)
-        openCartDrawer();
+        // Open the cart drawer
+        cartDrawer.classList.add('open');
 
         const card = btn.closest('.fruit-card');
         const img = card.querySelector('.fruit-img');
