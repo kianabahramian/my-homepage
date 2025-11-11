@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-        <div class="duo-bg">
+            <div class="background-fruit-container">
+                <img src="ananas.png" class="bg-fruit bg-fruit-1" alt="Pineapple">
+                <img src="kiwi.png" class="bg-fruit bg-fruit-2" alt="Kiwi">
+                <img src="fruit.png" class="bg-fruit bg-fruit-3" alt="Orange">
+            </div>
+            <div class="duo-bg">
             <div class="fruit-app-card">
                 <h1 class="duo-title">Kawaii Fruit Shop</h1>
                 <p class="duo-intro">Order your favorite fruits in kawaii style!</p>
@@ -39,6 +44,49 @@
         </div>
 </body>
 <style>
+    .background-fruit-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    .bg-fruit {
+        position: absolute;
+        opacity: 0.13;
+        filter: blur(0.5px) saturate(1.2);
+        pointer-events: none;
+        animation: float-fruit 8s ease-in-out infinite;
+        will-change: transform;
+    }
+    .bg-fruit-1 {
+        left: 8vw;
+        top: 12vh;
+        width: 120px;
+        animation-delay: 0s;
+    }
+    .bg-fruit-2 {
+        right: 10vw;
+        top: 30vh;
+        width: 90px;
+        animation-delay: 2s;
+    }
+    .bg-fruit-3 {
+        left: 50vw;
+        bottom: 10vh;
+        width: 100px;
+        animation-delay: 4s;
+    }
+    @keyframes float-fruit {
+        0%   { transform: translateY(0px) scale(1) rotate(-8deg); }
+        25%  { transform: translateY(-18px) scale(1.04) rotate(2deg); }
+        50%  { transform: translateY(0px) scale(1.02) rotate(-4deg); }
+        75%  { transform: translateY(12px) scale(1.01) rotate(6deg); }
+        100% { transform: translateY(0px) scale(1) rotate(-8deg); }
+    }
                         .flying-img {
                             position: fixed;
                             z-index: 1000;
