@@ -27,15 +27,80 @@
                         <div class="fruit-name">Kiwi</div>
                         <button class="add-cart-btn">Add to Cart</button>
                     </div>
-                    
+                    <div class="fruit-card">
+                        <img src="orange.svg" alt="Orange" class="fruit-img">
+                        <div class="fruit-name">Orange</div>
+                        <button class="add-cart-btn">Add to Cart</button>
+                    </div>
                 </div>
-                <div class="cart-area">
+                <div class="cart-area" id="cart-area">
                     <h2>🛒 Cart</h2>
-                    <ul class="cart-list">
+                    <ul class="cart-list" id="cart-list">
                         <!-- Cart items will appear here (UI only) -->
                     </ul>
                 </div>
             </div>
         </div>
 </body>
+<style>
+    .flying-img {
+        position: fixed;
+        z-index: 1000;
+        pointer-events: none;
+        transition: transform 0.7s cubic-bezier(.4,2,.6,1), opacity 0.7s;
+        will-change: transform, opacity;
+    }
+</style>
+<script>
+// Helper to get the cart area position
+function getCartPosition() {
+    const cart = document.getElementById('cart-area');
+    const rect = cart.getBoundingClientRect();
+    return {
+        x: rect.left + rect.width / 2,
+        y: rect.top + 10 // top of cart area
+    };
+}
+
+// Add to Cart animation and UI logic
+document.querySelectorAll('.add-cart-btn').forEach((btn) => {
+    btn.addEventListener('click', function() {
+        const card = btn.closest('.fruit-card');
+        const img = card.querySelector('.fruit-img');
+        const imgRect = img.getBoundingClientRect();
+        const cartPos = getCartPosition();
+
+        // Clone the image
+        const flyingImg = img.cloneNode(true);
+        flyingImg.classList.add('flying-img');
+        document.body.appendChild(flyingImg);
+        // Set initial position
+        flyingImg.style.left = imgRect.left + 'px';
+        flyingImg.style.top = imgRect.top + 'px';
+        flyingImg.style.width = imgRect.width + 'px';
+        flyingImg.style.height = imgRect.height + 'px';
+        flyingImg.style.transform = 'none';
+
+        // Force reflow
+        void flyingImg.offsetWidth;
+
+        // Animate to cart
+        const dx = cartPos.x - (imgRect.left + imgRect.width/2);
+        const dy = cartPos.y - (imgRect.top + imgRect.height/2);
+        flyingImg.style.transform = `translate(${dx}px, ${dy}px) scale(0.3)`;
+        flyingImg.style.opacity = '0.2';
+
+        // Remove after animation
+        setTimeout(() => {
+            flyingImg.remove();
+            // Add to cart UI (just add name for now)
+            const fruitName = card.querySelector('.fruit-name').textContent;
+            const cartList = document.getElementById('cart-list');
+            const li = document.createElement('li');
+            li.textContent = fruitName;
+            cartList.appendChild(li);
+        }, 700);
+    });
+});
+</script>
 </html>
