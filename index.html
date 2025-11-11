@@ -144,7 +144,11 @@
     object-position: center;
         border: 2px solid #58cc02;
         box-shadow: 0 1px 6px rgba(88,204,2,0.10);
-        background: #fff;
+                        background: #c6e2b3;
+                        /* Darker green for more contrast */
+                        border: 2.5px solid #a3e49c;
+                        box-shadow: 0 2px 8px rgba(30,60,114,0.06);
+                        /* Slightly darker, soft green for contrast */
     }
     .profile-details {
         display: flex;
@@ -285,7 +289,7 @@
     .cart-fruit-card {
     background: transparent;
         border-radius: 18px;
-        box-shadow: 0 2px 12px rgba(88,204,2,0.10);
+                        box-shadow: 0 6px 32px 0 rgba(30,60,114,0.18), 0 1.5px 8px 0 rgba(88,204,2,0.13);
         padding: 16px 0 16px 16px;
         display: flex;
         align-items: center;
@@ -345,7 +349,9 @@ function getCartPosition() {
         x: rect.left + rect.width / 2,
         y: rect.top + 10 // top of cart area
     };
+    opacity: 0.6;
 }
+    opacity: 1;
 
 // Add to Cart animation and UI logic
 const cartDrawer = document.getElementById('cart-area');
